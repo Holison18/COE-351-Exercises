@@ -8,7 +8,7 @@ class shape{
     public:
         shape():area(0){}
 
-        void get_area(){
+        virtual void get_area(){
             cout<<"Area: "<<area<<endl;
         }
 };
@@ -23,7 +23,7 @@ class triangle:public shape{
             area = 0.5*height*base;
         }
         void get_area(){
-            shape::get_area();
+            cout<<"Area of rectanle: "<<area<<endl;
         }
 };
 
@@ -36,7 +36,7 @@ class square:public shape{
             area = length*length;
         }
         void get_area(){
-            shape::get_area();
+            cout<<"Area of square: "<<area<<endl;
         }
 };
 
