@@ -6,9 +6,8 @@ class shape{
     protected:
         float area;
     public:
-        shape(){
+        shape():area(0){}
 
-        }
         void get_area(){
             cout<<"Area: "<<area<<endl;
         }
@@ -21,9 +20,9 @@ class triangle:public shape{
         triangle(float h,float b){
             height = h;
             base = b;
+            area = 0.5*height*base;
         }
         void get_area(){
-            area = 0.5*(height*base);
             shape::get_area();
         }
 };
@@ -34,22 +33,26 @@ class square:public shape{
     public:
         square(float l){
             length = l;
+            area = length*length;
         }
         void get_area(){
-            area = length*length;
-            shape:get_area();
+            shape::get_area();
         }
 };
 
 
 int main(){
-    shape* shp1;
+    shape* shp1[2];
+
+    shp1[0] = new triangle(5,20);
+    shp1[1] = new square(10);
+
+    // getting the area of the triangle
+    shp1[0]->get_area();
+    shp1[1]->get_area();
+
+    return 0;
 
 
-    shp1 = new square(5);
-    shp1->get_area();
-
-    shp1 = new triangle(4.5,8);
-    shp1->get_area();
 
 }
